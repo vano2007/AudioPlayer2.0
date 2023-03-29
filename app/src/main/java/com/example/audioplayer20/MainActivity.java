@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity implements Runnable{
     public void playSong() {
         try { // обработка исключения на случай отстутствия файла
             if (mediaPlayer != null && mediaPlayer.isPlaying()) { // если mediaPlayer не пустой и mediaPlayer воспроизводится
-                mediaPlayer.stop(); // остановка MediaPlayer
                 mediaPlayer.seekTo(seekBar.getProgress());
+                seekBar.setProgress(mediaPlayer.getCurrentPosition());
                 wasPlaying = true; // инициализация значения запуска аудио-файла
                 // назначение кнопке картинки play
                 fabPlayPause.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, android.R.drawable.ic_media_play));
